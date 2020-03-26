@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= render 'layouts/rails_default' %>
+    
     <title><%= full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-    <%# クロスサイトリクエストフォージェリーを防ぐためのメソッド %>
-
-    <%= stylesheet_link_tag    'application', media: 'all',
-                               'data-turbolinks-track': 'reload' %>
-    <%# スタイルシートを展開するためのもの %>
-
-    <%= javascript_include_tag 'application',
-                               'data-turbolinks-track': 'reload' %>
-    <%# JavaScriptを展開するためのもの %>
-
+    
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    <%= render 'layouts/footer' %> 
+    </div>
   </body>
 </html>
